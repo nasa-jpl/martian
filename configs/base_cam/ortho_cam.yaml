@@ -1,0 +1,14 @@
+
+
+# Camera object properties
+proj_model: "ORTHO" # Orthographic camera
+sensor_fit: "HORIZONTAL"
+ortho_scale: 10000 # m (map_ortho_width for moon.yaml: 9900 m)
+clip_start: 100
+clip_end: 100000.0
+
+# Image properties
+img_width: 1000 #990 # image width [pixels]
+img_height: 1000 # image height [pixels]
+aspect_x: 1 # pixel scaling factor for width
+aspect_y: 1 # pixel scaling factor for height

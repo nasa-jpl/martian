@@ -1,0 +1,61 @@
+
+
+####################  GEOMETRY  ####################
+Terrain:
+
+  ### Use a pre-existing blend file
+  terrain_name: "Terrain"
+  # blend_file: "hirise_assets/jezero_crater/blend_files/jezero_40resDTM_C01ortho" # "hirise_assets/jezero_crater/jezero_10res_wo_objects" #  
+  dtm_file: "hirise_input/oxia_colles/DTEEC_064604_1985_064459_1985_A01.IMG"
+  high_res_ortho: "hirise_input/oxia_colles/ESP_064604_1985_RED_A_01_ORTHO.JP2" # High resolution ortho-image used as texture
+  low_res_ortho:  "hirise_input/oxia_colles/ESP_064604_1985_RED_C_01_ORTHO.JP2" # Low resolution ortho-image used to sample queries on map
+  roughness: 0.7 # Jezero: 0.9 # (Default: 0.5) Set the roughenss value in the material principled BSDF in Blender, within range [0, 1]
+
+###### Ortho Camera location in Blender world frame to render a full map centered in the terrain model
+ortho_cam_x: 0    # Set the X (m) coord. (x=300 m centers the cam to the map)
+ortho_cam_y: 0    # Set the Y (m) coord. (y=0 m centers the cam to the map)
+ortho_cam_altitude: 4000 # Set the altitude (m) sufficiently high above the DTM (for 'ortho' the altitude value doesn't matter, when cam is pointing down)
+
+################# LIGHT #################
+
+SunLight:
+  translation: [0,0,10000] #[0,0,0]
+  rotation: [0,0,0] # pitch,roll,yaw in degrees
+  energy: 580 #10 # W /m^2
+  angular_diameter: 0.35 # 0.01 #  deg
+  glossy: True
+
+############### Rendering and enviornment options ###########
+# Samples for renderings. Higher produces better quality images
+cycles_samples: 16 #32 # try to increase if you see the images having poor quality
+                    # the smaller the samples, the grainer the image
+# World lighting
+World:
+  exposure: -7.0 # -4 #
+  # do not touch yet...
+  # ambient_occlusion: True
+  # ambient_occlusion_factor: 0.5
+
+# Cycles rendering engine options
+Cycles:
+  # Main options
+  samples: 16  #32 # try to increase if you see the images having poor quality
+                    # the smaller the samples, the grainer the image
+  device: GPU
+  # do not touch yet...
+  use_adaptive_sampling: True
+  use_progressive_refine: True
+  max_bounces: 100
+  min_bounces: 10
+  caustics_reflective: False
+  caustics_refractive: False
+  diffuse_bounces: 10
+  glossy_bounces: 10 # Jezero: 4
+  transmission_bounces: 4
+  volume_bounces: 0
+  transparent_min_bounces: 8
+  transparent_max_bounces: 64
+  blur_glossy: 5
+  sample_clamp_indirect: 5
+
+

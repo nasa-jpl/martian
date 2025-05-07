@@ -1,0 +1,20 @@
+
+
+# Camera object properties
+proj_model: "PERSP" # Perspective camera
+focal_length: 32 # millimeters
+sensor_width: 80 # millimiters
+sensor_fit: "HORIZONTAL" # when sensor_fit is horizontal, then sensor height is ignored
+shift_x: 0 # lens shift x (pixel)
+shift_y: 0 # lens shift y (pixel)
+clip_start: 0.5 # 10
+clip_end: 100000.0
+
+# Image properties
+img_width: 640 #640 # image width [pixels]
+img_height: 480 #480 # image height [pixels]
+aspect_x: 1 # pixel scaling factor for width
+aspect_y: 1 # pixel scaling factor for height
+
+  
+  
