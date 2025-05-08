@@ -4,7 +4,7 @@
 
 ![Alt text](assets/MARTIAN_overview.png)
 
-The Mars Aerial Rendering Tool for Imaging And Navigation (MARTIAN) is a python-based software integrated in Blender 4.0, which imports [HiRISE](https://www.uahirise.org/) Digital Terrain Models (DTMs) and ortho-projected images to simulate maps and aerial observations of the sourced Martian site  under user-defined lighting conditions, and camera intrinsic and extrinsic parameters. The framework operates with two modes: "demo" and "dataset". The former produces perspective and orthographic observations along with depth information at desired locations of the terrain mesh. The latter allows to generate maps and observations image datasets, with camera locations sampled over specified areas of the Martian site with desired altitude and attitude ranges, and Sun azimuth and elevation angles. The tool is presented in Pisanti, D., Hewitt, R., Brockers, R., & Georgakis, G.,  "Vision-based Geo-Localization of Future Mars Rotorcraft in Challenging Illumination Conditions" ([pdf](https://arxiv.org/abs/2502.09795)), where it has been used to generate datasets including maps and aerial observations of the [Jezero crater](https://hirise.lpl.arizona.edu/dtm/dtm.php?ID=ESP_046060_1985) to train and test Geo-LoFTR, a novel learning-based image registration method for the Map-based Localization ([MbL](https://link/to/future/mbl/repo)) of the Mars Science Helicopter conceived by NASA Jet Propulsion laboratory.
+The Mars Aerial Rendering Tool for Imaging And Navigation (MARTIAN) is a python-based software integrated in Blender 4.0, which imports [HiRISE](https://www.uahirise.org/) Digital Terrain Models (DTMs) and ortho-projected images to simulate maps and aerial observations of the sourced Martian site  under user-defined lighting conditions, and camera intrinsic and extrinsic parameters. The framework operates with two modes: "demo" and "dataset". The former produces perspective and orthographic observations along with depth information at desired locations of the terrain mesh. The latter allows to generate maps and observations image datasets, with camera locations sampled over specified areas of the Martian site with desired altitude and attitude ranges, and Sun azimuth and elevation angles. The tool is presented in Pisanti, D., Hewitt, R., Brockers, R., & Georgakis, G.,  "Vision-based Geo-Localization of Future Mars Rotorcraft in Challenging Illumination Conditions" ([pdf](https://arxiv.org/abs/2502.09795)), where it has been used to generate datasets including maps and aerial observations of the [Jezero crater](https://hirise.lpl.arizona.edu/dtm/dtm.php?ID=ESP_046060_1985) to train and test Geo-LoFTR, a novel learning-based image registration method for the Map-based Localization ([MbL](https://github.com/nasa-jpl/mbl_mars)) of the Mars Science Helicopter conceived by NASA Jet Propulsion laboratory.
 
 ## Example: ortho-maps and observations under different illumination conditions
 
@@ -100,8 +100,8 @@ If you have installed Anaconda with the default parameters, your conda environme
 #### Install dependencies
 Clone the git repo and install dependencies:
 ```
-git clone https://link/to/future/MARTIAN/repo
-cd ~/MARTIAN
+git clone https://github.com/nasa-jpl/martian.git
+cd ~/martian
 conda install --file ./requirements.txt
 ```
 
@@ -179,8 +179,8 @@ If you have installed Anaconda with the default parameters, your conda environme
 #### Install dependencies
 Clone the git repo and install dependencies:
 ```
-git clone https://link/to/future/MARTIAN/repo
-cd ~/MARTIAN
+git clone https://github.com/nasa-jpl/martian.git
+cd ~/martian
 conda install --file ./requirements.txt
 ```
 
@@ -224,7 +224,7 @@ To run MARTIAN for a specific site on Mars, you need the following HiRISE assets
 Assets for Jezero Crater can be found at:
 https://www.uahirise.org/dtm/ESP_045994_1985
 
-The HiRISE products can be donwloaded and placed in `~/MARTIAN/hirise_input`, with the path of the individual files specified in the main .yaml configuration file (see next section).
+The HiRISE products can be donwloaded and placed in `~/martian/hirise_input`, with the path of the individual files specified in the main .yaml configuration file (see next section).
 
 Ortho-image files have poduct ID in the format:
 ```
