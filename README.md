@@ -1,10 +1,19 @@
-## MARTIAN 
+## Source code for MARTIAN 
 
-#### Authors: Dario Pisanti, Georgios Georgakis
+### MARTIAN: A Rendering Framework for Aerial Mars Imagery from HiRISE Orbital Data ([pdf]((https://arxiv.org/abs/2605.29647))
+Dario Pisanti and Georgios Georgakis
 
 ![Alt text](assets/MARTIAN_overview.png)
 
-The Mars Aerial Rendering Tool for Imaging And Navigation (MARTIAN) is a python-based software integrated in Blender 4.0, which imports [HiRISE](https://www.uahirise.org/) Digital Terrain Models (DTMs) and ortho-projected images to simulate maps and aerial observations of the sourced Martian site  under user-defined lighting conditions, and camera intrinsic and extrinsic parameters. The framework operates with two modes: "demo" and "dataset". The former produces perspective and orthographic observations along with depth information at desired locations of the terrain mesh. The latter allows to generate maps and observations image datasets, with camera locations sampled over specified areas of the Martian site with desired altitude and attitude ranges, and Sun azimuth and elevation angles. The tool is presented in Pisanti, D., Hewitt, R., Brockers, R., & Georgakis, G.,  "Vision-based Geo-Localization of Future Mars Rotorcraft in Challenging Illumination Conditions" ([pdf](https://arxiv.org/abs/2502.09795)), where it has been used to generate datasets including maps and aerial observations of the [Jezero crater](https://hirise.lpl.arizona.edu/dtm/dtm.php?ID=ESP_046060_1985) to train and test Geo-LoFTR, a novel learning-based image registration method for the Map-based Localization ([MbL](https://github.com/nasa-jpl/mbl_mars)) of the Mars Science Helicopter conceived by NASA Jet Propulsion laboratory.
+The Mars Aerial Rendering Tool for Imaging And Navigation (MARTIAN) is a python-based software integrated in Blender 4.0, which imports [HiRISE](https://www.uahirise.org/) Digital Terrain Models (DTMs) and ortho-projected images to simulate maps and aerial observations of the sourced Martian site  under user-defined lighting conditions, and camera intrinsic and extrinsic parameters. The framework operates with two modes: "demo" and "dataset". The former produces perspective and orthographic observations along with depth information at desired locations of the terrain mesh. The latter allows to generate maps and observations image datasets, with camera locations sampled over specified areas of the Martian site with desired altitude and attitude ranges, and Sun azimuth and elevation angles. The tool is presented in Pisanti, D., Hewitt, R., Brockers, R., & Georgakis, G.,  "Geometry-aided Vision-based Localization of Future Mars Helicopters in Challenging Illumination Conditions" ([pdf](https://arxiv.org/abs/2502.09795)), where it has been used to generate datasets including maps and aerial observations of the [Jezero crater](https://hirise.lpl.arizona.edu/dtm/dtm.php?ID=ESP_046060_1985) to train and test Geo-LoFTR, a novel learning-based image registration method for the Map-based Localization ([MbL](https://github.com/nasa-jpl/mbl_mars)) of the Mars Science Helicopter conceived by NASA Jet Propulsion laboratory.
+
+![Alt text](assets/ICRA26_workshop_MARTIAN_view_w_pose.png)
+
+<details>
+      <summary> [Figure caption] </summary> 
+ View of the Jezero crater site in MARTIAN with the simulated perspective imaging camera and a rendered observation. 
+</details>
+
 
 ## Example: ortho-maps and observations under different illumination conditions
 
@@ -392,19 +401,32 @@ blender --background --python main.py -- --mode dataset --main_yaml jezero.yaml 
 
 
 ## Citation
-If you find our work useful in your research, please use the following BibTeX entry:
+If you find our work useful in your research, please use the following BibTeX entries:
 ```
-@article{pisanti2025vision,
-  title={Vision-based Geo-Localization of Future Mars Rotorcraft in Challenging Illumination Conditions},
-  author={Pisanti, Dario and Hewitt, Robert and Brockers, Roland and Georgakis, Georgios},
-  journal={arXiv preprint arXiv:2502.09795},
-  year={2025}
+@misc{pisanti2026geometryaidedvisionbasedlocalizationfuture,
+      title={Geometry-aided Vision-based Localization of Future Mars Helicopters in Challenging Illumination Conditions}, 
+      author={Dario Pisanti and Robert Hewitt and Roland Brockers and Georgios Georgakis},
+      year={2026},
+      eprint={2502.09795},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2502.09795}, 
+}
+
+@misc{pisanti2026martianrenderingframeworkaerial,
+      title={MARTIAN: A Rendering Framework for Aerial Mars Imagery from HiRISE Orbital Data}, 
+      author={Dario Pisanti and Georgios Georgakis},
+      year={2026},
+      eprint={2605.29647},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.29647}, 
 }
 ```
 
 ## Copyright
 ```
-Copyright 2025, by the California Institute of Technology. ALL RIGHTS RESERVED. 
+Copyright 2026, by the California Institute of Technology. ALL RIGHTS RESERVED. 
 United States Government Sponsorship acknowledged. 
 Any commercial use must be negotiated with the Office of Technology Transfer at the California Institute of Technology.
  
