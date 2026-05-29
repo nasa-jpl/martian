@@ -1,6 +1,6 @@
 ## Source code for MARTIAN 
 
-### MARTIAN: A Rendering Framework for Aerial Mars Imagery from HiRISE Orbital Data ([pdf]((https://arxiv.org/abs/2605.29647))
+### MARTIAN: A Rendering Framework for Aerial Mars Imagery from HiRISE Orbital Data ([pdf](https://arxiv.org/abs/2605.29647))
 Dario Pisanti and Georgios Georgakis
 
 ![Alt text](assets/MARTIAN_overview.png)
