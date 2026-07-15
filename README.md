@@ -333,7 +333,7 @@ The `demo` mode in MARTIAN renders an ortho-projected map with desired pixel res
 
 To launch a demo by generating a terrain mesh from the jezero.yaml file at 100% of the original DTM resolution, and with map rendered at 40° of Sun Elevation and 180° of Sun Azimuth at 0.25 m / pixel, run from root:
 ```
-blender --background --python main.py -- --mode demo --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --demo_name "demo" --dest_dir "./demos" --map_px_res 0.25 --map_dir "./demos/maps --sun_az 180 --sun_el 40 --cam0_altitude 64 --cam0_loc_x " -553.76" --cam0_loc_y 3316.22 --cam0_yaw 0. --cam0_pitch 0. --cam0_roll 0. --cam1_altitude 200. --cam1_loc_x " -548.51" --cam1_loc_y 3033.95 --cam1_yaw 225. --cam1_pitch 10.--cam1_roll 5.
+blender --background --python main.py -- --mode demo --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --demo_name "demo" --dest_dir "./demos" --map_px_res 0.25 --map_dir ./demos/maps --sun_az 180 --sun_el 40 --cam0_altitude 64 --cam0_loc_x " -553.76" --cam0_loc_y 3316.22 --cam0_yaw 0. --cam0_pitch 0. --cam0_roll 0. --cam1_altitude 200. --cam1_loc_x " -548.51" --cam1_loc_y 3033.95 --cam1_yaw 225. --cam1_pitch 10. --cam1_roll 5.
 ```
 
 For this run the first perspective camera is located at 64 m altitude over the location (x,y) = (-553.76, 33316.22) m, in the Blender world frame 𝑊, with 0° attitude (nadir-pointing camera). The second perspective camera is locat at 200 m altitude over (x,y)=(-548.51, 3033.95) m, with yaw &gamma;=225°, pitch &beta;=10° and roll &phi;=5°. Negative input coordinates for the camera location must be provided in the string format " -X", with X being the real absolute value of the coordinate.
