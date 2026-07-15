@@ -59,6 +59,11 @@ class DTM:
 
     """
 
+    # To be compatible with both new and old numpy. The new form (frombuffer) is
+    # preffered
+    try:    fromthing = np.frombuffer
+    except: fromthing = np.fromstring
+
     # Special constants in our data:
     #     NULL : No data at this point.
     #     LRS  : Low Representation Saturation
@@ -66,11 +71,11 @@ class DTM:
     #     HRS  : High Representation Saturation
     #     HIS  : High Insturment Saturation
     SPECIAL_VALUES = {
-        "NULL": np.fromstring(b'\xFF\x7F\xFF\xFB', dtype='>f4')[0],
-        "LRS": np.fromstring(b'\xFF\x7F\xFF\xFC', dtype='>f4')[0],
-        "LIS": np.fromstring(b'\xFF\x7F\xFF\xFD', dtype='>f4')[0],
-        "HRS": np.fromstring(b'\xFF\x7F\xFF\xFE', dtype='>f4')[0],
-        "HIS": np.fromstring(b'\xFF\x7F\xFF\xFF', dtype='>f4')[0]
+        "NULL": fromthing(b'\xFF\x7F\xFF\xFB', dtype='>f4')[0],
+        "LRS":  fromthing(b'\xFF\x7F\xFF\xFC', dtype='>f4')[0],
+        "LIS":  fromthing(b'\xFF\x7F\xFF\xFD', dtype='>f4')[0],
+        "HRS":  fromthing(b'\xFF\x7F\xFF\xFE', dtype='>f4')[0],
+        "HIS":  fromthing(b'\xFF\x7F\xFF\xFF', dtype='>f4')[0]
     }
 
     def __init__(self, path, terrain_resolution=1.0):
