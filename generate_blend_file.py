@@ -28,7 +28,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=".")
 
     parser.add_argument('--main_yaml', type=str, default='./configs/jezero.yaml', help="Min yaml file with environment configuration")
-    parser.add_argument('--dtm_resolution', type=float, default=10., help="Percentage scale for terrain model resolution. 100\% loads the "
+    parser.add_argument('--dtm_resolution', type=float, default=10., help="Percentage scale for terrain model resolution. 100%% loads the "
                                                                             "model at full resolution (i.e. one vertex for each post in the "
                                                                             "original terrain model) and is *MEMORY INTENSIVE*. Downsampling "
                                                                             "uses Nearest Neighbors. The downsampling algorithm may need to "

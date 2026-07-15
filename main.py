@@ -93,7 +93,7 @@ def parse_common_arguments():
     blender_file_group.add_argument('--generate_blend_file', default=False, action='store_true', help="If enabled, generate a blender file from the info in the main yaml file.")
     
 
-    parser.add_argument('--dtm_resolution', type=float, default=10., help="Percentage scale for terrain model resolution. 100\% loads the "
+    parser.add_argument('--dtm_resolution', type=float, default=10., help="Percentage scale for terrain model resolution. 100%% loads the "
                                                                             "model at full resolution (i.e. one vertex for each post in the "
                                                                             "original terrain model) and is *MEMORY INTENSIVE*. Downsampling "
                                                                             "uses Nearest Neighbors. The downsampling algorithm may need to "

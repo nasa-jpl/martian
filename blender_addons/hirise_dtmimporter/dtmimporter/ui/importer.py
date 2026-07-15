@@ -63,7 +63,7 @@ class ImportHiRISETerrain(bpy.types.Operator, ImportHelper):
     dtm_resolution: FloatProperty(
         subtype="PERCENTAGE",
         description=(
-            "Percentage scale for terrain model resolution. 100\% loads the "
+            "Percentage scale for terrain model resolution. 100%% loads the "
             "model at full resolution (i.e. one vertex for each post in the "
             "original terrain model) and is *MEMORY INTENSIVE*. Downsampling "
             "uses Nearest Neighbors. You will be able to increase the "
