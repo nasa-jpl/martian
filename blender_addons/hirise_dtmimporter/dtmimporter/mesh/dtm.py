@@ -139,9 +139,14 @@ class DTM:
         return int(label_length * num_labels)
 
     def _process_invalid_data(self, data):
-        """Sets any 'NULL' elevation values to np.NaN"""
+        """Sets any 'NULL' elevation values to nan"""
+
+        # for compatibility with old and new numpy
+        try:    nan = np.nan
+        except: nan = np.NaN
+
         invalid_data_mask = (data <= self.SPECIAL_VALUES['NULL'])
-        data[invalid_data_mask] = np.NaN
+        data[invalid_data_mask] = nan
         return data
 
     @property
