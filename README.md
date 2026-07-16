@@ -426,7 +426,9 @@ If you find our work useful in your research, please use the following BibTeX en
 
 ## Reference Contact
 Dario Pisanti
+
 email: dario.pisanti@uni.lu
+
 website: https://www.uni.lu/snt-en/people/dario-pisanti/
 
 ## Copyright
