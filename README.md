@@ -320,7 +320,14 @@ MARTIAN allows to generate a standalone .blend file with terrain mesh, material 
 To generate a .blend file from the jezero.yaml configuration file and with a mesh resolution equal to 20% of the original DTM resolution, and with specified file name and destination, run from root:
 
 ```
-blender --background --python generate_blend_file.py -- --main_yaml jezero.yaml --dtm_resolution 20. --blend_dest hirise_input/jezero_crater/blend_files --blend_filename "jezero_100DTMres_A-ortho_roughness0.9"
+blender                                               \
+  --background                                        \
+  --python generate_blend_file.py                     \
+  --                                                  \
+  --main_yaml jezero.yaml                             \
+  --dtm_resolution 20.                                \
+  --blend_dest hirise_input/jezero_crater/blend_files \
+  --blend_filename "jezero_100DTMres_A-ortho_roughness0.9"
 ```
 
 *Note*:
@@ -333,7 +340,32 @@ The `demo` mode in MARTIAN renders an ortho-projected map with desired pixel res
 
 To launch a demo by generating a terrain mesh from the jezero.yaml file at 100% of the original DTM resolution, and with map rendered at 40° of Sun Elevation and 180° of Sun Azimuth at 0.25 m / pixel, run from root:
 ```
-blender --background --python main.py -- --mode demo --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --demo_name "demo" --dest_dir "./demos" --map_px_res 0.25 --map_dir "./demos/maps --sun_az 180 --sun_el 40 --cam0_altitude 64 --cam0_loc_x " -553.76" --cam0_loc_y 3316.22 --cam0_yaw 0. --cam0_pitch 0. --cam0_roll 0. --cam1_altitude 200. --cam1_loc_x " -548.51" --cam1_loc_y 3033.95 --cam1_yaw 225. --cam1_pitch 10.--cam1_roll 5.
+blender                   \
+  --background            \
+  --python main.py        \
+  --                      \
+  --mode demo             \
+  --main_yaml jezero.yaml \
+  --generate_blend_file   \
+  --dtm_resolution 100    \
+  --demo_name "demo"      \
+  --dest_dir "./demos"    \
+  --map_px_res 0.25       \
+  --map_dir ./demos/maps  \
+  --sun_az 180            \
+  --sun_el 40             \
+  --cam0_altitude 64      \
+  --cam0_loc_x " -553.76" \
+  --cam0_loc_y 3316.22    \
+  --cam0_yaw 0.           \
+  --cam0_pitch 0.         \
+  --cam0_roll 0.          \
+  --cam1_altitude 200.    \
+  --cam1_loc_x " -548.51" \
+  --cam1_loc_y 3033.95    \
+  --cam1_yaw 225.         \
+  --cam1_pitch 10.        \
+  --cam1_roll 5.
 ```
 
 For this run the first perspective camera is located at 64 m altitude over the location (x,y) = (-553.76, 33316.22) m, in the Blender world frame 𝑊, with 0° attitude (nadir-pointing camera). The second perspective camera is locat at 200 m altitude over (x,y)=(-548.51, 3033.95) m, with yaw &gamma;=225°, pitch &beta;=10° and roll &phi;=5°. Negative input coordinates for the camera location must be provided in the string format " -X", with X being the real absolute value of the coordinate.
@@ -362,7 +394,23 @@ To render multiple maps from the Jezero Crater at 0.25 m/pixel resolution with S
 
 
 ```
-blender --background --python main.py -- --mode dataset --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --sun_EL_range 10 60 --sun_EL_step 10 --sun_AZ_range 0 315 --sun_AZ_step 45  --render_map --map_dest $DATA_DIR --map_px_res 0.25 --tiles_x 8 --tiles_y 16
+blender                   \
+  --background            \
+  --python main.py        \
+  --                      \
+  --mode dataset          \
+  --main_yaml jezero.yaml \
+  --generate_blend_file   \
+  --dtm_resolution 100    \
+  --sun_EL_range 10 60    \
+  --sun_EL_step 10        \
+  --sun_AZ_range 0 315    \
+  --sun_AZ_step 45        \
+  --render_map            \
+  --map_dest $DATA_DIR    \
+  --map_px_res 0.25       \
+  --tiles_x 8             \
+  --tiles_y 16
 ```
 
 For computational efficiency in both rendering and map data loading, the maps rendered in tiles along the X- and Y-directions in the image frame (with X along the image width, and Y along the height). Same applies for depth images rendering.   
@@ -370,7 +418,22 @@ For computational efficiency in both rendering and map data loading, the maps re
 *Note*: if running on clusters, render one Sun Elevation angle at time. For instance, to render maps with varying azimuth at EL=10°, run:
 
 ```
-blender --background --python main.py -- --mode dataset --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --sun_EL_range 10 10 --sun_AZ_range 0 315 --sun_AZ_step 45  --render_map --map_dest $DATA_DIR --map_px_res 0.25 --tiles_x 8 --tiles_y 16
+blender                   \
+  --background            \
+  --python main.py        \
+  --                      \
+  --mode dataset          \
+  --main_yaml jezero.yaml \
+  --generate_blend_file   \
+  --dtm_resolution 100    \
+  --sun_EL_range 10 10    \
+  --sun_AZ_range 0 315    \
+  --sun_AZ_step 45        \
+  --render_map            \
+  --map_dest $DATA_DIR    \
+  --map_px_res 0.25       \
+  --tiles_x 8             \
+  --tiles_y 16
 ```
 
 #### Example run for queries renderings
@@ -378,7 +441,20 @@ blender --background --python main.py -- --mode dataset --main_yaml jezero.yaml 
 MARTIAN allows to generate a specified number of query observations randomly sampled over the whole DTM within specified range of altitude, and yaw, pitch and roll angles. To render 500 nadir-pointing observations from the entire Jezero Crater map in the altitude range [64, 200] m, with Sun EL=40° and AZ=180° run, and store them at the location $DATA_DIR, run from root:
 
 ```
-blender --background --python main.py -- --mode dataset --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --sun_EL_range 40 40 --sun_AZ_range 180 180 --render_queries --query_dest $DATA_DIR --samples 500 --altitude_range 64 200
+blender                   \
+  --background            \
+  --python main.py        \
+  --                      \
+  --mode dataset          \
+  --main_yaml jezero.yaml \
+  --generate_blend_file   \
+  --dtm_resolution 100    \
+  --sun_EL_range 40 40    \
+  --sun_AZ_range 180 180  \
+  --render_queries        \
+  --query_dest $DATA_DIR  \
+  --samples 500           \
+  --altitude_range 64 200
 ```
 
 To generate observations with viewpoint offset from nadir-pointing, provide the maximum values of yaw, pitch and roll. For examples, observation with yaw angle in the range [-180°, 180°], pitch in the range [-20°, 20°] and roll in the range [-5°, 5°], add the following arguments:
@@ -390,13 +466,43 @@ To generate observations with viewpoint offset from nadir-pointing, provide the 
 
 In MARTIAN is also possible to define a search area on the map to sample the observations from. The search area is specified in terms of x- and y- coordinates range in the Blender world frame. To generate synthetic Ingenuity observations, for instance, you can run:
 ```
-blender --background --python main.py -- --mode dataset --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --sun_EL_range 40 40 --sun_AZ_range 180 180 --render_queries --query_dest $DATA_DIR --samples 500 --altitude_range 10 24 --sample_area --xrange " -2500." 500. --yrange 1000. 6000.
+blender                   \
+  --background            \
+  --python main.py        \
+  --                      \
+  --mode dataset          \
+  --main_yaml jezero.yaml \
+  --generate_blend_file   \
+  --dtm_resolution 100    \
+  --sun_EL_range 40 40    \
+  --sun_AZ_range 180 180  \
+  --render_queries        \
+  --query_dest $DATA_DIR  \
+  --samples 500           \
+  --altitude_range 10 24  \
+  --sample_area           \
+  --xrange " -2500." 500. \
+  --yrange 1000. 6000.
 ```
 where `--sample_area` enables the identification of a search area with specified x-coord. range `--xrange` and y-coord. range `--yrange`.
 
 *Note*: if runnning on clusters, manually specify `--xrange` and `--yrange` in `main.py`, and run just:
 ```
-blender --background --python main.py -- --mode dataset --main_yaml jezero.yaml --generate_blend_file --dtm_resolution 100 --sun_EL_range 40 40 --sun_AZ_range 180 180 --render_queries --query_dest $DATA_DIR --samples 500 --altitude_range 10 24 --sample_area
+blender                   \
+  --background            \
+  --python main.py        \
+  --                      \
+  --mode dataset          \
+  --main_yaml jezero.yaml \
+  --generate_blend_file   \
+  --dtm_resolution 100    \
+  --sun_EL_range 40 40    \
+  --sun_AZ_range 180 180  \
+  --render_queries        \
+  --query_dest $DATA_DIR  \
+  --samples 500           \
+  --altitude_range 10 24  \
+  --sample_area
 ```
 
 

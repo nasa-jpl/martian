@@ -59,7 +59,7 @@ class TerrainPanel(Panel):
         subtype="PERCENTAGE",
         name="New Resolution",
         description=(
-            "Percentage scale for terrain model resolution. 100\% loads the "
+            "Percentage scale for terrain model resolution. 100%% loads the "
             "model at full resolution (i.e. one vertex for each post in the "
             "original terrain model) and is *MEMORY INTENSIVE*. Downsampling "
             "uses Nearest Neighbors. The downsampling algorithm may need to "
