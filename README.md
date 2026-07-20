@@ -256,16 +256,17 @@ The generated zip is gitignored and never committed.
 
 The HiRISE DTM Importer for Blender was originally developed by
 Nicholas Wolf and Tim Spriggs at the Planetary Image Research Laboratory
-(PIRL), Lunar and Planetary Laboratory, University of Arizona, and is
-maintained in the fork used here by [phaseIV](https://github.com/phaseIV) with
-compatibility updates for modern Blender versions. It is distributed under
-the GNU General Public License (GPL).
+(PIRL), Lunar and Planetary Laboratory, University of Arizona, and released
+under the GNU General Public License (GPL).
 
-- Source: <https://github.com/phaseIV/Blender-Hirise-DTM-Importer>
-- Documentation: <https://hemelmechanica.nl/hirise-docs/>
+MARTIAN uses [phaseIV/Blender-Hirise-DTM-Importer](https://github.com/phaseIV/Blender-Hirise-DTM-Importer),
+a community-maintained fork that ports the original add-on to Blender 2.8+. 
+
+- Upstream fork (as used by MARTIAN): <https://github.com/phaseIV/Blender-Hirise-DTM-Importer>
+- Original documentation: <https://hemelmechanica.nl/hirise-docs/>
 - License: <https://hemelmechanica.nl/hirise-docs/license.html>
-- Original copyright: © Arizona Board of Regents on behalf of PIRL/LPL,
-  University of Arizona (2017).
+- Original copyright: © 2017 Arizona Board of Regents on behalf of PIRL/LPL,
+  University of Arizona.
 
 MARTIAN does not redistribute this add-on's source code; it is installed
 locally as an external, independently-licensed dependency.
