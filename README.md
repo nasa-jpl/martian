@@ -222,6 +222,54 @@ source ~/.zshrc
 ```
 </details>
 
+
+## Third-Party Dependencies
+
+### HiRISE DTM Importer
+
+MARTIAN uses the **HiRISE DTM Importer** Blender add-on to load HiRISE
+Digital Terrain Models. This add-on is licensed under the GPL and is **not
+bundled with this repository**. It is fetched, patched, and installed locally
+via a setup script the first time you set up MARTIAN.
+
+**Setup:**
+
+From the repository root, run:
+
+```bash
+./scripts/setup_dtm_importer.sh
+```
+
+This clones the upstream add-on
+([phaseIV/Blender-Hirise-DTM-Importer](https://github.com/phaseIV/Blender-Hirise-DTM-Importer),
+pinned to a specific commit for reproducibility), applies a small set of
+compatibility patches (numpy 2 compatibility and argparse escape fixes,
+courtesy of [@dkogan](https://github.com/dkogan);
+see [#1](https://github.com/nasa-jpl/martian/pull/1)),
+and produces `blender_addons/hirise_dtmimporter/dtmimporter.zip` at the path
+MARTIAN's Blender-side code expects.
+
+Re-run the script only when you want to update the pinned upstream version.
+The generated zip is gitignored and never committed.
+
+**Credit:**
+
+The HiRISE DTM Importer for Blender was originally developed by
+Nicholas Wolf and Tim Spriggs at the Planetary Image Research Laboratory
+(PIRL), Lunar and Planetary Laboratory, University of Arizona, and is
+maintained in the fork used here by [phaseIV](https://github.com/phaseIV) with
+compatibility updates for modern Blender versions. It is distributed under
+the GNU General Public License (GPL).
+
+- Source: <https://github.com/phaseIV/Blender-Hirise-DTM-Importer>
+- Documentation: <https://hemelmechanica.nl/hirise-docs/>
+- License: <https://hemelmechanica.nl/hirise-docs/license.html>
+- Original copyright: © Arizona Board of Regents on behalf of PIRL/LPL,
+  University of Arizona (2017).
+
+MARTIAN does not redistribute this add-on's source code; it is installed
+locally as an external, independently-licensed dependency.
+
 ## Data Dependencies
 
 To run MARTIAN for a specific site on Mars, you need the following HiRISE assets for that site:
